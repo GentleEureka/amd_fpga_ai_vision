@@ -1,0 +1,38 @@
+FPGA SRAM program result
+========================
+PROGRAM_DEVICE=xcku040_0 PART=xcku040
+PROGRAM_FILE=hardware/output/generated/amd_fpga_continuous_vision_v2.bit
+POST_REGISTER.CONFIG_STATUS.BIT[14]_DONE_PIN=1
+POST_REGISTER.CONFIG_STATUS.BIT[15]_IDCODE_ERROR=0
+V2_SRAM_PROGRAM_OK=xcku040_0
+
+10-second live capture result
+=============================
+interface=Intel(R) Ethernet Server Adapter X520-2
+frames_seen=198 complete=196 partial=0 malformed=1
+decoded_frames=196 decode_errors=0 measured_fps=19.69 resolution=1920x1080
+payload_lengths={432: 197, 1392: 586224}
+header_dimensions={(1920, 1080): 586421}
+sensor_register_readbacks={(5, 4180): 97388, (0, 1080): 97393, (1, 1500): 97391, (2, 1713): 97576, (3, 18177): 98903, (4, 4369): 97770}
+fpga_camera_fifo_overflow_packets=0
+fpga_modes={0: 586421} fpga_thresholds={128: 586421} fpga_sequences={0: 586421}
+packet_id_gaps=0 pcap_drop=0 interface_drop=0
+
+Frame-rate optimization boundary
+================================
+1. 84 MHz, HTS=2500, VTS=1120: FPGA configured, OV5640 produced no DVP frames.
+2. 84 MHz, HTS=2844, VTS=1120: FPGA configured, OV5640 produced no DVP frames.
+3. 84 MHz, HTS=2844, VTS=1500, manual PCLK /1: stable 19.69 FPS result above.
+
+The release bitstream uses configuration 3. Attempts 1 and 2 were not retained
+as release firmware because a directly testable package must always produce video.
+
+Host preview latest-frame test
+==============================
+Service health: OK
+Preview configuration: 18 FPS cap, 960 px width, JPEG quality 72
+Requests: 24 in 2.36 seconds
+Unique frame IDs: 21
+First/last frame ID: 5880 / 5924
+Average preview payload: 8793 bytes
+Result: the host preview advances to current frames without accumulating an old-frame queue.

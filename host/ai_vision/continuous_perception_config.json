@@ -1,0 +1,81 @@
+{
+  "capture": {
+    "interface": "",
+    "buffer_seconds": 10.0,
+    "buffer_fps": 8.0,
+    "preview_fps": 18.0,
+    "preview_width": 960,
+    "preview_jpeg_quality": 72,
+    "buffer_width": 640,
+    "jpeg_quality": 78,
+    "motion_width": 160,
+    "motion_height": 90
+  },
+  "analysis": {
+    "interval_seconds": 20.0,
+    "window_seconds": 2.0,
+    "frame_count": 3,
+    "image_width": 384,
+    "scene_image_width": 640,
+    "minimum_frames": 3,
+    "post_inference_cooldown_seconds": 0.05
+  },
+  "motion": {
+    "pixel_delta": 18,
+    "grid_rows": 6,
+    "grid_columns": 8,
+    "start_motion_ratio": 0.012,
+    "start_local_ratio": 0.2,
+    "continue_motion_ratio": 0.005,
+    "continue_local_ratio": 0.1,
+    "start_consecutive_samples": 2,
+    "pre_seconds": 0.8,
+    "post_seconds": 0.25,
+    "minimum_duration_seconds": 0.25,
+    "maximum_duration_seconds": 2.0,
+    "cooldown_seconds": 0.3,
+    "warmup_samples": 12,
+    "baseline_alpha": 0.02,
+    "start_baseline_multiplier": 1.8,
+    "start_baseline_margin": 0.002,
+    "continue_baseline_multiplier": 1.25,
+    "continue_baseline_margin": 0.001
+  },
+  "events": {
+    "queue_capacity": 1,
+    "frame_count": 3,
+    "archive_evidence": true,
+    "evidence_directory": "runtime/event_evidence",
+    "audit_file": "runtime/event_pipeline.jsonl"
+  },
+  "algorithm_control": {
+    "enabled": false,
+    "interface": "",
+    "minimum_confidence": 0.88,
+    "confirmations": 2,
+    "cooldown_seconds": 45.0,
+    "readback_timeout_seconds": 3.0
+  },
+  "model": {
+    "base_url": "http://127.0.0.1:8081/v1",
+    "model": "qwen3-vl-8b-instruct-q4_k_m",
+    "timeout_seconds": 180.0,
+    "max_retries": 1,
+    "retry_delay_seconds": 0.5,
+    "temperature": 0.0,
+    "max_tokens": 480
+  },
+  "memory": {
+    "state_file": "runtime/continuous_scene_memory.json",
+    "minimum_event_confidence": 0.65,
+    "event_dedup_seconds": 20.0,
+    "max_events": 500,
+    "max_understandings": 120,
+    "max_pending_events": 300,
+    "max_candidates": 300
+  },
+  "api": {
+    "host": "127.0.0.1",
+    "port": 8765
+  }
+}

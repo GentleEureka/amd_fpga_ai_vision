@@ -1,0 +1,60 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Mon Nov  2 13:52:13 2026
+| Host         : DESKTOP-0G7CMMT running 64-bit major release  (build 9200)
+| Command      : report_drc -file C:/Users/42636/Desktop/amd_fpga_continuous_vision_1080p30_optimized/hardware/reports/generated/post_route_drc.rpt
+| Design       : mc02_sfp1_10g_camera_top
+| Device       : xcku040-ffva1156-2-e
+| Speed File   : -2
+| Design State : Fully Routed
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: impl_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max violations: <unlimited>
+             Violations found: 3
++-----------+----------+---------------------------------+------------+
+| Rule      | Severity | Description                     | Violations |
++-----------+----------+---------------------------------+------------+
+| PLCK-58   | Warning  | Clock Placer Checks             | 1          |
+| RPBF-3    | Warning  | IO port buffering is incomplete | 1          |
+| RTSTAT-10 | Warning  | No routable loads               | 1          |
++-----------+----------+---------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+PLCK-58#1 Warning
+Clock Placer Checks  
+Sub-optimal placement for a global clock-capable IO pin and BUFG pair.
+Resolution: A dedicated routing path between the two can be used if: (a) The global clock-capable IO (GCIO) is placed on a GCIO capable site (b) The BUFG is placed in the same bank of the device as the GCIO pin. Both the above conditions must be met at the same time, else it may lead to longer and less predictable clock insertion delays.
+ This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint is set to FALSE allowing your design to continue. The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in the design.
+
+	cam_pclk_IBUF_inst/IBUFCTRL_INST (in cam_pclk_IBUF_inst macro) (IBUFCTRL.O) is locked to B20
+	cam_pclk_IBUF_BUFG_inst (BUFGCE.I) is provisionally placed by clockplacer on BUFGCE_X0Y119
+
+Related violations: <none>
+
+RPBF-3#1 Warning
+IO port buffering is incomplete  
+Device port cam_scl expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RTSTAT-10#1 Warning
+No routable loads  
+72 net(s) have no routable loads. The problem bus(es) and/or net(s) are ten_gig_i/mac_pcs_i/pcs_pma_i/U0/ten_gig_eth_pcs_pma_0_core/ten_gig_eth_pcs_pma_inst/G_IS_BASER.ten_gig_eth_pcs_pma_inst/BASER.ten_gig_eth_pcs_pma_inst/xgmii_txc_reg2[7:0]
+ten_gig_i/mac_pcs_i/pcs_pma_i/U0/ten_gig_eth_pcs_pma_0_core/ten_gig_eth_pcs_pma_inst/G_IS_BASER.ten_gig_eth_pcs_pma_inst/BASER.ten_gig_eth_pcs_pma_inst/xgmii_txd_reg2[63:0].
+Related violations: <none>
+
+

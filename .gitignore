@@ -1,0 +1,20 @@
+# Local installation configuration can contain private machine paths.
+installation.json
+*.gguf
+.env
+.env.*
+host/ai_vision/.venv/
+host/ai_vision/runtime/
+host/ai_vision/__pycache__/
+host/camera_viewer/__pycache__/
+__pycache__/
+*.py[cod]
+
+# Vivado-generated project and transient files.
+hardware/.Xil/
+hardware/project/
+hardware/*.jou
+hardware/*.log
+hardware/*.backup.*
+hardware/reports/*.jou
+hardware/reports/*.log

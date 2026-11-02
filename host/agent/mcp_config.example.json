@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "cam1-vision": {
+      "command": "C:/PATH/TO/PROJECT/host/ai_vision/.venv/Scripts/python.exe",
+      "args": [
+        "C:/PATH/TO/PROJECT/host/ai_vision/vision_mcp_server.py"
+      ],
+      "env": {
+        "PYTHONPATH": "C:/PATH/TO/PROJECT/host/ai_vision;C:/PATH/TO/PROJECT/host/camera_viewer",
+        "CAM1_PCAP_INTERFACE": "YOUR_NPCAP_INTERFACE_ID"
+      }
+    }
+  }
+}
